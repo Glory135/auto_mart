@@ -151,7 +151,7 @@ main.App .topBar .top-container nav ul li span {
 
 main.App .topBar .top-container nav ul li span::after {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   content: "";
   width: 0%;
   height: 1px;
@@ -262,8 +262,151 @@ main.App .body-container .post form {
 }
 
 main.App .body-container .post form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 20px 0;
   width: 30%;
-  border: 1px solid blue;
+}
+
+@media (max-width: 800px) {
+  main.App .body-container .post form label {
+    width: 45%;
+  }
+}
+
+@media (max-width: 500px) {
+  main.App .body-container .post form label {
+    width: 100%;
+  }
+}
+
+main.App .body-container .post form label span.label {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+main.App .body-container .post form label span.extra {
+  font-size: 12px;
+  color: red;
+  margin-left: 3px;
+}
+
+main.App .body-container .post form label input {
+  width: 90%;
+  font-size: large;
+  height: 40px;
+  border-radius: 7px;
+  margin-left: 10%;
+  padding: 0 5px;
+}
+
+main.App .body-container .post form label input:focus {
+  outline: 3px solid #ffcfcf;
+}
+
+main.App .body-container .post form label.AddPhoto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  padding: 10px 30px;
+  border-radius: 10px;
+  background-color: #fff4d3;
+  cursor: pointer;
+  border: 3px solid #fff4d3;
+}
+
+main.App .body-container .post form label.AddPhoto:hover {
+  border: 3px solid #d9f4ff;
+}
+
+main.App .body-container .post form label.AddPhoto:active {
+  border: 3px solid #ffcfcf;
+}
+
+main.App .body-container .post form input.photoInput {
+  display: none;
+}
+
+main.App .body-container .post form .btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  margin-top: 50px;
+}
+
+main.App .body-container .post form .btn-container .submitBtn {
+  width: 80%;
+}
+
+main.App .body-container .post .preview-container {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 500px) {
+  main.App .body-container .post .preview-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+main.App .body-container .post .preview-container .preview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+main.App .body-container .post .preview-container .preview img {
+  width: 95%;
+  height: 200px;
+}
+
+@media (max-width: 500px) {
+  main.App .body-container .post .preview-container .preview {
+    margin-bottom: 10px;
+  }
 }
 
 main.App .body-container .paginate {
