@@ -1,0 +1,36 @@
+& .single {
+  position: relative;
+  margin-bottom: 50px;
+  & .singleProduct {
+    box-shadow: $shadow;
+    border-radius: 20px;
+    & .singleProduct-media {
+      height: 250px;
+      @include md {
+        height: 200px;
+      }
+    }
+    & .singleProduct-year {
+      padding: 5px 10px;
+      font-size: 17px;
+      border-radius: 10px;
+      background-color: $primary;
+      font-weight: bold;
+    }
+  }
+  & .tag {
+    position: absolute;
+    right: -40px;
+    top: -15px;
+    padding: 5px 10px;
+    background-color: $text;
+    color: white;
+    border-radius: 5px;
+    transform: rotate(45deg);
+    @include sm {
+      transform: rotate(0deg);
+      right: -5px;
+      top: -25px;
+    }
+  }
+}

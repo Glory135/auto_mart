@@ -1,0 +1,16 @@
+& .post {
+  & .post-head {
+    width: 100%;
+    height: 100px;
+    margin-top: 30px;
+    font-size: 30px;
+  }
+  & form {
+    @include position(center, space-between);
+    flex-wrap: wrap;
+    & label {
+      width: 30%;
+      border: 1px solid blue;
+    }
+  }
+}

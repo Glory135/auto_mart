@@ -1,38 +1,403 @@
-.App {
-  text-align: center;
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #221f50;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.Link {
+  text-decoration: none;
+  color: inherit;
+}
+
+main.App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: _;
+      -ms-flex-pack: _;
+          justify-content: _;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+main.App .topBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: 10vh;
+  background: -webkit-gradient(linear, left top, right top, from(#d9f4ff), to(#ffcfcf));
+  background: linear-gradient(to right, #d9f4ff, #ffcfcf);
+  -webkit-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.22);
+          box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+main.App .topBar .top-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 80%;
+  height: 100%;
+}
+
+@media (max-width: 500px) {
+  main.App .topBar .top-container {
+    width: 95%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main.App .topBar .top-container h2.logo {
+  padding: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+}
+
+main.App .topBar .top-container nav {
+  width: auto;
+  height: 100%;
+}
+
+main.App .topBar .top-container nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  width: auto;
+  height: 100%;
+}
+
+main.App .topBar .top-container nav ul li {
+  position: relative;
+  padding: 5px 10px;
+  margin-left: 30px;
+}
+
+@media (max-width: 500px) {
+  main.App .topBar .top-container nav ul li {
+    margin-left: 10px;
+  }
+}
+
+main.App .topBar .top-container nav ul li span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 17px;
+}
+
+@media (max-width: 500px) {
+  main.App .topBar .top-container nav ul li span {
+    font-size: 12px;
+  }
+}
+
+main.App .topBar .top-container nav ul li span::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  width: 0%;
+  height: 1px;
+  background-color: #221f50;
+}
+
+main.App .topBar .top-container nav ul li span:hover {
+  cursor: pointer;
+}
+
+main.App .topBar .top-container nav ul li span:hover::after {
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+main.App .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 50px;
+  width: 100%;
+  height: 5vh;
+  background-color: #fff4d3;
+  font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  main.App .footer {
+    font-weight: lighter;
+    font-size: 14px;
+  }
+}
+
+main.App .footer a {
+  margin-left: 5px;
+}
+
+@media (max-width: 500px) {
+  main.App .footer a {
+    margin-left: 2px;
+  }
+}
+
+main.App .footer a:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: blue;
+}
+
+main.App .body-container {
+  margin-top: 10vh;
+  width: 80%;
+  min-height: 80vh;
+}
+
+@media (max-width: 500px) {
+  main.App .body-container {
+    width: 95%;
+  }
+}
+
+main.App .body-container .home .home-head {
+  margin-top: 30px;
+  width: 100%;
+  height: 100px;
+  font-size: 40px;
+  font-weight: lighter;
+}
+
+main.App .body-container .home .home-head span {
+  border-top: 3px solid #fff4d3;
+}
+
+main.App .body-container .post .post-head {
+  width: 100%;
+  height: 100px;
+  margin-top: 30px;
+  font-size: 30px;
+}
+
+main.App .body-container .post form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main.App .body-container .post form label {
+  width: 30%;
+  border: 1px solid blue;
+}
+
+main.App .body-container .paginate {
+  width: 100%;
+  height: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(200px, 45%))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 45%));
+  -webkit-column-gap: 10%;
+          column-gap: 10%;
+}
+
+@media (max-width: 800px) {
+  main.App .body-container .paginate {
+    -ms-grid-columns: (minmax(200px, 47.5%))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(200px, 47.5%));
+    -webkit-column-gap: 5%;
+            column-gap: 5%;
+  }
+}
+
+@media (max-width: 500px) {
+  main.App .body-container .paginate {
+    -ms-grid-columns: (minmax(200px, 100%))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(200px, 100%));
+  }
+}
+
+main.App .body-container .paginate-btn-container {
+  min-height: 50px;
+  height: auto;
+  width: 100%;
+}
+
+main.App .body-container .paginate-btn-container .paginationBtn {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  list-style-type: none;
+  padding: 0;
+}
+
+main.App .body-container .paginate-btn-container .paginationBtn li {
+  color: #ffcfcf;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: 1px solid #ffcfcf;
+}
+
+main.App .body-container .paginationBtn li:hover {
+  color: white;
+  background-color: #ffcfcf;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main.App .body-container .paginationActive {
+  color: white;
+  background-color: #ffcfcf;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main.App .body-container .paginationActive a {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+main.App .body-container .paginationDisabled {
+  color: #ffcfcf;
+  border: 1px solid #ffcfcf;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+main.App .body-container .single {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+main.App .body-container .single .singleProduct {
+  -webkit-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.22);
+          box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.22);
+  border-radius: 20px;
+}
+
+main.App .body-container .single .singleProduct .singleProduct-media {
+  height: 250px;
+}
+
+@media (max-width: 800px) {
+  main.App .body-container .single .singleProduct .singleProduct-media {
+    height: 200px;
   }
 }
+
+main.App .body-container .single .singleProduct .singleProduct-year {
+  padding: 5px 10px;
+  font-size: 17px;
+  border-radius: 10px;
+  background-color: #d9f4ff;
+  font-weight: bold;
+}
+
+main.App .body-container .single .tag {
+  position: absolute;
+  right: -40px;
+  top: -15px;
+  padding: 5px 10px;
+  background-color: #221f50;
+  color: white;
+  border-radius: 5px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+@media (max-width: 500px) {
+  main.App .body-container .single .tag {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    right: -5px;
+    top: -25px;
+  }
+}
+/*# sourceMappingURL=App.css.map */

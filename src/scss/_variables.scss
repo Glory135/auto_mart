@@ -1,0 +1,47 @@
+$primary: #d9f4ff;
+$secondary: #ffcfcf;
+$tertiary: #fff4d3;
+$text: #221f50;
+
+$shadow: 1px 3px 5px rgba(0, 0, 0, 0.22);
+
+@mixin position($align: center, $justify: center, $flow: row) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $flow;
+}
+
+$breakpoints: (
+  "sm": 500px,
+  "md": 800px,
+  "lg": 1100px,
+  "xl": 1400px,
+);
+
+@mixin sm {
+  @media (max-width: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: map-get($breakpoints, "md")) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: map-get($breakpoints, "lg")) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (max-width: map-get($breakpoints, "xl")) {
+    @content;
+  }
+}
+
+@mixin media($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}

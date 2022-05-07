@@ -1,0 +1,67 @@
+& .topBar {
+  @include position;
+  width: 100%;
+  height: 10vh;
+  background: linear-gradient(to right, $primary, $secondary);
+  box-shadow: $shadow;
+
+  & .top-container {
+    @include position(center, space-between);
+    width: 80%;
+    height: 100%;
+    @include sm {
+      width: 95%;
+    }
+
+    & h2.logo {
+      padding: 10px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      cursor: pointer;
+    }
+
+    & nav {
+      width: auto;
+      height: 100%;
+      & ul {
+        @include position;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        width: auto;
+        height: 100%;
+
+        & li {
+          position: relative;
+          padding: 5px 10px;
+          margin-left: 30px;
+          @include sm {
+            margin-left: 10px;
+          }
+
+          & span {
+            @include position;
+            font-size: 17px;
+            @include sm {
+              font-size: 12px;
+            }
+            &::after {
+              position: absolute;
+              bottom: 0;
+              content: "";
+              width: 0%;
+              height: 1px;
+              background-color: $text;
+            }
+            &:hover {
+              cursor: pointer;
+              &::after {
+                width: 100%;
+                transition: 0.3s;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

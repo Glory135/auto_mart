@@ -1,0 +1,40 @@
+@import "./scss/variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  color: $text;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body {
+  margin: 0;
+}
+
+.Link {
+  text-decoration: none;
+  color: inherit;
+}
+
+main.App {
+  @include position(center, _, column);
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  @import "./scss/components/topBar";
+  @import "./scss/components/footer";
+
+  & .body-container {
+    margin-top: 10vh;
+    width: 80%;
+    min-height: 80vh;
+    @include sm {
+      width: 95%;
+    }
+    @import "./scss/pages/home";
+    @import "./scss/pages/post";
+    @import "./scss/components/allProducts";
+    @import "./scss/components/singleProduct";
+  }
+}

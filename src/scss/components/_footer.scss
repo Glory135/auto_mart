@@ -1,0 +1,22 @@
+& .footer {
+  @include position;
+  margin-top: 50px;
+  width: 100%;
+  height: 5vh;
+  background-color: $tertiary;
+  font-weight: bold;
+  @include sm {
+    font-weight: lighter;
+    font-size: 14px;
+  }
+  & a {
+    margin-left: 5px;
+    @include sm {
+      margin-left: 2px;
+    }
+    &:hover {
+      transition: 0.3s;
+      color: blue;
+    }
+  }
+}
