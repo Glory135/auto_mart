@@ -9,8 +9,83 @@
     @include position(center, space-between);
     flex-wrap: wrap;
     & label {
+      @include position(flex-start, center, column);
+      margin: 20px 0;
       width: 30%;
-      border: 1px solid blue;
+      @include md {
+        width: 45%;
+      }
+      @include sm {
+        width: 100%;
+      }
+      & span.label {
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+      & span.extra {
+        font-size: 12px;
+        color: red;
+        margin-left: 3px;
+      }
+      & input {
+        width: 90%;
+        font-size: large;
+        height: 40px;
+        border-radius: 7px;
+        margin-left: 10%;
+        padding: 0 5px;
+        &:focus {
+          outline: 3px solid $secondary;
+        }
+      }
+    }
+    & label.AddPhoto {
+      display: flex;
+      width: auto;
+      padding: 10px 30px;
+      border-radius: 10px;
+      background-color: $tertiary;
+      cursor: pointer;
+      border: 3px solid $tertiary;
+
+      &:hover {
+        border: 3px solid $primary;
+      }
+      &:active {
+        border: 3px solid $secondary;
+      }
+    }
+    & input.photoInput {
+      display: none;
+    }
+    & .btn-container {
+      @include position;
+      width: 100%;
+      margin-top: 50px;
+      & .submitBtn {
+        width: 80%;
+      }
+    }
+  }
+  & .preview-container {
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    height: auto;
+    @include sm {
+      flex-direction: column;
+    }
+
+    & .preview {
+      @include position;
+      flex: 1;
+      & img {
+        width: 95%;
+        height: 200px;
+      }
+      @include sm {
+        margin-bottom: 10px;
+      }
     }
   }
 }
