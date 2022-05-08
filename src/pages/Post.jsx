@@ -22,7 +22,9 @@ export const Post = () => {
   };
   return (
     <div className='post'>
-      <div className='post-head'>Post Your Car For Sale</div>
+      <div className='post-head'>
+        <span>Post</span> Your Car For Sale
+      </div>
       <form>
         <label>
           <span className='label'>Brand:</span>
