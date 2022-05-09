@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
+import { handleDelete } from "../../utilities";
 
 export const SingleProducts = ({ data }) => {
   return (
@@ -16,28 +17,35 @@ export const SingleProducts = ({ data }) => {
       {" "}
       <span className='tag'>For Sale!!</span>
       <Card className='singleProduct'>
-        <Link to='/singleAd' className='Link'>
-          <CardActionArea>
+        <Link to={`/singleAd/?id=${data._id}`} className='Link'>
+          <CardActionArea style={{ textTransform: "Capitalize" }}>
             <CardMedia
               className='singleProduct-media'
-              image={data}
+              // image={data.images.main}
               title='Product'
             />
             <CardContent>
               <Typography gutterBottom variant='h5'>
-                Toyota Camry <span className='singleProduct-year'>2010</span>
+                {data.brand} {data.model}{" "}
+                <span className='singleProduct-year'>{data.year}</span>
               </Typography>
-              <Typography variant='body1'>Price : 2 million NGN</Typography>
+              <Typography variant='body1'>Price : {data.price} NGN</Typography>
             </CardContent>
           </CardActionArea>
         </Link>
         <CardActions>
-          <Link to='/singleAd' className='Link'>
+          <Link to={`/singleAd/?id=${data._id}`} className='Link'>
             <Button size='large' color='primary'>
               Show More
             </Button>
           </Link>
-          <Button size='large' color='secondary'>
+          <Button
+            onClick={() => {
+              handleDelete(data._id);
+            }}
+            size='large'
+            color='secondary'
+          >
             Delete
           </Button>
         </CardActions>
