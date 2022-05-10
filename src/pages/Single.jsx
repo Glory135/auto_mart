@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { data as dataimg } from "../data";
+
 import { ImgSlider } from "../components/ImgSlider";
 import { Button } from "@material-ui/core";
 import { ArrowForward, DeleteForeverOutlined } from "@material-ui/icons";
@@ -8,7 +8,9 @@ import axios from "axios";
 import { handleDelete } from "../utilities";
 
 export const Single = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    images: { main: "", extra1: "", extra2: "" },
+  });
   const { search } = useLocation();
   const navigate = useNavigate();
 
@@ -16,7 +18,7 @@ export const Single = () => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:2000/api/product/${search.split("=")[1]}`
+          `https://auto-mart1.herokuapp.com/api/product/${search.split("=")[1]}`
         );
         setData(res.data);
       } catch (error) {
@@ -25,11 +27,12 @@ export const Single = () => {
     };
     getData();
   }, [search]);
+  const sliderImgs = [data.images.main, data.images.extra1, data.images.extra2];
 
   return (
     <div className='singleProductPage'>
       <div className='img-slider-container'>
-        <ImgSlider data={dataimg.slice(0, 3)} />
+        <ImgSlider data={sliderImgs} />
       </div>
       <div className='single-details-container'>
         <div className='single-main-details-container'>

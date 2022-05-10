@@ -26,7 +26,7 @@ export const Post = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:2000/api/user/post", {
+      await axios.post("https://auto-mart1.herokuapp.com/api/user/post", {
         brand,
         model,
         year,

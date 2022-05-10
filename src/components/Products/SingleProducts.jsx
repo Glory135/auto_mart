@@ -7,11 +7,13 @@ import {
   CardMedia,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { LoadContext } from "../../App";
 import { handleDelete } from "../../utilities";
 
 export const SingleProducts = ({ data }) => {
+  const { setIsloading } = useContext(LoadContext);
   return (
     <div className='single'>
       {" "}
@@ -21,7 +23,7 @@ export const SingleProducts = ({ data }) => {
           <CardActionArea style={{ textTransform: "Capitalize" }}>
             <CardMedia
               className='singleProduct-media'
-              // image={data.images.main}
+              image={data.images.main}
               title='Product'
             />
             <CardContent>
@@ -41,7 +43,7 @@ export const SingleProducts = ({ data }) => {
           </Link>
           <Button
             onClick={() => {
-              handleDelete(data._id);
+              handleDelete(data._id, setIsloading);
             }}
             size='large'
             color='secondary'

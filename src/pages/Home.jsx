@@ -18,7 +18,7 @@ export const Home = () => {
       setIsloading(true);
       try {
         const res = await axios.get(
-          `http://localhost:2000/api/products/${search}`
+          `https://auto-mart1.herokuapp.com/api/products/${search}`
         );
         setAllData(res.data);
         setTimeout(() => {
@@ -30,7 +30,7 @@ export const Home = () => {
       }
     };
     getData();
-  }, [search]);
+  }, [search, setIsloading]);
 
   return (
     <div className='home'>
@@ -53,7 +53,7 @@ export const Home = () => {
           </div>
 
           {allData.length >= 1 ? (
-            <AllProducts data={allData} />
+            <AllProducts data={allData.reverse()} />
           ) : (
             <h1>No Data Found</h1>
           )}

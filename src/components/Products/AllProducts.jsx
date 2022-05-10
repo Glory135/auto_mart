@@ -10,7 +10,6 @@ export const AllProducts = ({ data }) => {
   const pagesVisited = pageNumber * dataPerPage;
 
   const DisplayData = data
-    .reverse()
     .slice(pagesVisited, pagesVisited + dataPerPage)
     .map((item, index) => {
       return <SingleProducts key={index} data={item} />;
