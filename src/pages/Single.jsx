@@ -12,7 +12,7 @@ export const Single = () => {
   const [data, setData] = useState({
     images: { main: "", extra1: "", extra2: "" },
   });
-  const { setIsLoading } = useContext(LoadContext);
+  const { setIsloading } = useContext(LoadContext);
   const { search } = useLocation();
   const navigate = useNavigate();
 
@@ -66,7 +66,7 @@ export const Single = () => {
               </Button>
               <Button
                 onClick={() => {
-                  handleDelete(data._id, setIsLoading);
+                  handleDelete(data._id, setIsloading);
                   navigate("/");
                 }}
                 className='btn'
