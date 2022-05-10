@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { ImgSlider } from "../components/ImgSlider";
 import { Button } from "@material-ui/core";
@@ -6,11 +6,13 @@ import { ArrowForward, DeleteForeverOutlined } from "@material-ui/icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { handleDelete } from "../utilities";
+import { LoadContext } from "../App";
 
 export const Single = () => {
   const [data, setData] = useState({
     images: { main: "", extra1: "", extra2: "" },
   });
+  const { setIsLoading } = useContext(LoadContext);
   const { search } = useLocation();
   const navigate = useNavigate();
 
@@ -64,7 +66,7 @@ export const Single = () => {
               </Button>
               <Button
                 onClick={() => {
-                  handleDelete(data._id);
+                  handleDelete(data._id, setIsLoading);
                   navigate("/");
                 }}
                 className='btn'
