@@ -4,6 +4,9 @@
     height: 100px;
     margin-top: 30px;
     font-size: 30px;
+    & span {
+      border-top: 3px solid $tertiary;
+    }
   }
   & form {
     @include position(center, space-between);
