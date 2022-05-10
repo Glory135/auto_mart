@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const SearchModal = ({ open, setOpen }) => {
   const [brand, setBrand] = useState("");
+  const [model, setModel] = useState("");
   const [year, setYear] = useState("");
   const classes = useStyles();
 
@@ -66,7 +67,15 @@ export const SearchModal = ({ open, setOpen }) => {
             size='small'
             value={brand}
             onChange={(e) => setBrand(e.target.value)}
-            style={{ width: "100%", marginBottom: "50px" }}
+            style={{ width: "100%", marginBottom: "30px" }}
+          />
+          <TextField
+            type='text'
+            label='Model'
+            size='small'
+            value={model}
+            onChange={(e) => setModel(e.target.value)}
+            style={{ width: "100%", marginBottom: "30px" }}
           />
 
           <TextField
@@ -75,9 +84,9 @@ export const SearchModal = ({ open, setOpen }) => {
             size='small'
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            style={{ width: "100%", marginBottom: "50px" }}
+            style={{ width: "100%", marginBottom: "30px" }}
           />
-          <Link className='Link' to={`/?search=${brand}/${year}`}>
+          <Link className='Link' to={`/?search=${brand}/${model}/${year}`}>
             <Button
               type='submit'
               onClick={() => setOpen(false)}

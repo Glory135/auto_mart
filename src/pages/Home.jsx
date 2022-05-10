@@ -12,7 +12,7 @@ export const Home = () => {
   const [allData, setAllData] = useState([]);
   const [open, setOpen] = useState(false);
   const { search } = useLocation();
-  console.log(search);
+ 
   useEffect(() => {
     const getData = async () => {
       setIsloading(true);
