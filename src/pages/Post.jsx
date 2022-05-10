@@ -1,17 +1,20 @@
 import { Button } from "@material-ui/core";
 import { Image } from "@material-ui/icons";
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Post = () => {
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
   const [year, setYear] = useState(0);
   const [color, setColor] = useState("");
-  const [mileage, setMileage] = useState("");
+  const [mileage, setMileage] = useState(0);
   const [price, setPrice] = useState(0);
   const [img1, setImg1] = useState(null);
   const [img2, setImg2] = useState(null);
   const [img3, setImg3] = useState(null);
+  const navigate = useNavigate();
 
   const previewPic = (file, set) => {
     const reader = new FileReader();
@@ -20,10 +23,31 @@ export const Post = () => {
       set(reader.result);
     };
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("https://auto-mart1.herokuapp.com/api/user/post", {
+        brand,
+        model,
+        year,
+        color,
+        mileage,
+        price,
+        img1,
+        img2,
+        img3,
+      });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className='post'>
-      <div className='post-head'>Post Your Car For Sale</div>
-      <form>
+      <div className='post-head'>
+        <span>Post</span> Your Car For Sale
+      </div>
+      <form onSubmit={handleSubmit}>
         <label>
           <span className='label'>Brand:</span>
           <input
@@ -85,8 +109,8 @@ export const Post = () => {
           </span>
         </label>
         <input
-          required
-          className='photoInput required'
+          // required
+          className='photoInput'
           type='file'
           id='photo1'
           onChange={(e) => {
@@ -101,8 +125,8 @@ export const Post = () => {
           </span>
         </label>
         <input
-          required
-          className='photoInput required'
+          // required
+          className='photoInput'
           type='file'
           id='photo2'
           onChange={(e) => {
@@ -117,8 +141,8 @@ export const Post = () => {
           </span>
         </label>
         <input
-          required
-          className='photoInput required'
+          // required
+          className='photoInput'
           type='file'
           id='photo3'
           onChange={(e) => {

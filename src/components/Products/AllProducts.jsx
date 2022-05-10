@@ -4,7 +4,7 @@ import ReactPaginate from "react-paginate";
 import { ArrowBack, ArrowForward } from "@material-ui/icons";
 
 export const AllProducts = ({ data }) => {
-  const [pageNumber, setPAgeNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState(0);
 
   const dataPerPage = 8;
   const pagesVisited = pageNumber * dataPerPage;
@@ -17,7 +17,7 @@ export const AllProducts = ({ data }) => {
 
   const pageCount = Math.ceil(data.length / dataPerPage);
   const pageChange = ({ selected }) => {
-    setPAgeNumber(selected);
+    setPageNumber(selected);
   };
   return (
     <>
