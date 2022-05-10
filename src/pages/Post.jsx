@@ -109,7 +109,7 @@ export const Post = () => {
           </span>
         </label>
         <input
-          // required
+          required
           className='photoInput'
           type='file'
           id='photo1'
@@ -125,7 +125,7 @@ export const Post = () => {
           </span>
         </label>
         <input
-          // required
+          required
           className='photoInput'
           type='file'
           id='photo2'
@@ -141,7 +141,7 @@ export const Post = () => {
           </span>
         </label>
         <input
-          // required
+          required
           className='photoInput'
           type='file'
           id='photo3'
