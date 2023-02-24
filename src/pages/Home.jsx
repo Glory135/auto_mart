@@ -19,7 +19,7 @@ export const Home = () => {
       setIsloading(true);
       try {
         const res = await axios.get(
-          `https://auto-mart1.herokuapp.com/api/products/${search}`
+          `https://automart.onrender.com/api/products/${search}` 
         );
         setAllData(res.data);
         setTimeout(() => {

@@ -20,7 +20,7 @@ export const Single = () => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `https://auto-mart1.herokuapp.com/api/product/${search.split("=")[1]}`
+          `https://automart.onrender.com/api/product/${search.split("=")[1]}`
         );
         setData(res.data);
       } catch (error) {
